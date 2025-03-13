@@ -1,0 +1,556 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Example data for adoptable dogs
+// In a real implementation, this would come from a database or API
+const adoptableDogs = [
+  {
+    id: 1,
+    name: "Daisy",
+    breed: "Dalmatian Mix",
+    age: "2 years",
+    gender: "Female",
+    size: "Medium",
+    description: "Daisy is a sweet and energetic Dalmatian mix who loves to play fetch and go for long walks. She's great with children and gets along well with other dogs. Daisy is house-trained and knows basic commands like sit, stay, and come.",
+    image: "/images/dog-placeholder-1.jpg"
+  },
+  {
+    id: 2,
+    name: "Spot",
+    breed: "Dalmatian",
+    age: "1 year",
+    gender: "Male",
+    size: "Large",
+    description: "Spot is a playful and friendly Dalmatian who enjoys cuddles and playtime equally. He's an intelligent dog who picks up training quickly. Spot would do well in an active home where he can get plenty of exercise and mental stimulation.",
+    image: "/images/dog-placeholder-2.jpg"
+  },
+  {
+    id: 3,
+    name: "Pepper",
+    breed: "Dalmatian/Pointer Mix",
+    age: "3 years",
+    gender: "Female",
+    size: "Medium",
+    description: "Pepper is a gentle soul who loves nothing more than curling up next to you on the couch. She's well-behaved, quiet, and would do well in an apartment. Pepper gets along with cats and would be a perfect companion for a family or individual looking for a low-energy dog.",
+    image: "/images/dog-placeholder-3.jpg"
+  },
+  {
+    id: 4,
+    name: "Max",
+    breed: "Dalmatian/Lab Mix",
+    age: "10 months",
+    gender: "Male",
+    size: "Medium-Large",
+    description: "Max is a puppy at heart who loves to play! He's still learning his manners but is eager to please and very trainable. Max would thrive in a home where he can get plenty of exercise and training. He'd be a great fit for an active family with older children.",
+    image: "/images/dog-placeholder-4.jpg"
+  },
+  {
+    id: 5,
+    name: "Luna",
+    breed: "Dalmatian Mix",
+    age: "4 years",
+    gender: "Female",
+    size: "Medium",
+    description: "Luna is a calm and gentle dog who loves everyone she meets. She's house-trained, knows several commands, and walks well on a leash. Luna would be perfect for a first-time dog owner or a family with children. She gets along well with other dogs and cats.",
+    image: "/images/dog-placeholder-5.jpg"
+  },
+  {
+    id: 6,
+    name: "Charlie",
+    breed: "Dalmatian/Collie Mix",
+    age: "2 years",
+    gender: "Male",
+    size: "Large",
+    description: "Charlie is an intelligent and active dog with a friendly disposition. He loves to learn new tricks and excels at agility activities. Charlie would do best in a home where he can get plenty of mental and physical exercise. He's good with children and other dogs.",
+    image: "/images/dog-placeholder-6.jpg"
+  }
+];
+---
+
+<Layout title="Adoptable Dogs - Barking Back Rescue">
+  <main>
+    <div class="hero">
+      <div class="container">
+        <h1>Adoptable Dogs</h1>
+        <p class="subtitle">Find your perfect spotted companion</p>
+      </div>
+    </div>
+
+    <section class="adoption-info">
+      <div class="container">
+        <h2>Adoption Process</h2>
+        <div class="process-steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>Browse Available Dogs</h3>
+            <p>Look through our list of adoptable dogs to find one that matches your lifestyle and preferences.</p>
+          </div>
+          
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Submit Application</h3>
+            <p>Fill out our adoption application form so we can learn more about you and your home environment.</p>
+          </div>
+          
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>Home Check</h3>
+            <p>We'll schedule a virtual or in-person home check to ensure it's a safe environment for the dog.</p>
+          </div>
+          
+          <div class="step">
+            <span class="step-number">4</span>
+            <h3>Meet & Greet</h3>
+            <p>Arrange a meeting with your potential new family member to make sure it's a good fit for everyone.</p>
+          </div>
+          
+          <div class="step">
+            <span class="step-number">5</span>
+            <h3>Adoption</h3>
+            <p>Complete the adoption agreement, pay the adoption fee, and welcome your new best friend home!</p>
+          </div>
+        </div>
+        
+        <div class="adoption-cta">
+          <a href="/contact" class="adoption-button">Start Adoption Process</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="adoptable-dogs-section">
+      <div class="container">
+        <h2>Meet Our Dogs</h2>
+        <p class="dogs-intro">
+          All of our dogs are living in foster homes where they receive love, care, and training 
+          while they wait for their forever families. Each dog has been evaluated for temperament, 
+          received necessary medical care, and been spayed or neutered.
+        </p>
+        
+        <div class="filter-section">
+          <p class="filter-intro">Filter dogs by:</p>
+          <div class="filter-buttons">
+            <button class="filter-button active" data-filter="all">All Dogs</button>
+            <button class="filter-button" data-filter="puppy">Puppies</button>
+            <button class="filter-button" data-filter="adult">Adults</button>
+            <button class="filter-button" data-filter="male">Males</button>
+            <button class="filter-button" data-filter="female">Females</button>
+          </div>
+        </div>
+        
+        <div class="dogs-grid">
+          {adoptableDogs.map(dog => (
+            <div class="dog-card">
+              <div class="dog-image-container">
+                <img src={dog.image} alt={`${dog.name} - ${dog.breed}`} class="dog-image">
+              </div>
+              <div class="dog-info">
+                <h3 class="dog-name">{dog.name}</h3>
+                <ul class="dog-details">
+                  <li><strong>Breed:</strong> {dog.breed}</li>
+                  <li><strong>Age:</strong> {dog.age}</li>
+                  <li><strong>Gender:</strong> {dog.gender}</li>
+                  <li><strong>Size:</strong> {dog.size}</li>
+                </ul>
+                <p class="dog-description">{dog.description}</p>
+                <a href={`/contact?dog=${dog.name}`} class="adopt-button">Adopt Me</a>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="no-dogs-message" style="display: none;">
+          <p>No dogs match your current filter. Please try a different selection.</p>
+        </div>
+        
+        <div class="adoption-disclaimer">
+          <h3>Adoption Requirements & Fees</h3>
+          <p>
+            Our adoption fee is $350 for adult dogs and $400 for puppies under 1 year. This fee helps cover 
+            the cost of veterinary care, vaccinations, spay/neuter, microchipping, and other expenses.
+          </p>
+          <p>
+            All adopters must be at least 21 years old, have landlord approval (if renting), and be 
+            willing to provide appropriate care, training, and veterinary treatment throughout the dog's life.
+          </p>
+          <p>
+            For more information about our adoption process or to inquire about a specific dog, 
+            please <a href="/contact">contact us</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="success-stories">
+      <div class="container">
+        <h2>Happy Tails</h2>
+        <p class="stories-intro">
+          See how our adopted dogs are thriving in their forever homes! We love receiving updates 
+          from our adopters and sharing these success stories.
+        </p>
+        
+        <div class="stories-slider">
+          <div class="story-card">
+            <img src="/images/success-placeholder-1.jpg" alt="Happy adopted dog with family" class="story-image">
+            <div class="story-content">
+              <h3>Bella's New Beginning</h3>
+              <p>
+                "Adopting Bella was the best decision we ever made. She has brought so much joy to our 
+                family and fits in perfectly with our lifestyle. Thank you, Barking Back Rescue, for 
+                bringing us together!" - The Johnson Family
+              </p>
+            </div>
+          </div>
+          
+          <div class="story-card">
+            <img src="/images/success-placeholder-2.jpg" alt="Happy adopted dog with owner" class="story-image">
+            <div class="story-content">
+              <h3>Rocky's Forever Home</h3>
+              <p>
+                "When I adopted Rocky, he was shy and unsure. With patience and love, he's blossomed 
+                into a confident and happy dog. He's my best friend and constant companion." - Sarah M.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .hero {
+    background-color: #4e96c8;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  section:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #4e96c8;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+  }
+  
+  .step {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    text-align: center;
+  }
+  
+  .step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4e96c8;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+  
+  .adoption-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .adoption-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4e96c8;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .adoption-button:hover {
+    background-color: #3a7cad;
+  }
+  
+  .dogs-intro, .stories-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+  }
+  
+  .filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 15px;
+  }
+  
+  .filter-intro {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .filter-button {
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .filter-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .filter-button.active {
+    background-color: #4e96c8;
+    color: white;
+  }
+  
+  .dogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .dog-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .dog-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .dog-image-container {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .dog-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  
+  .dog-card:hover .dog-image {
+    transform: scale(1.05);
+  }
+  
+  .dog-info {
+    padding: 20px;
+  }
+  
+  .dog-name {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #4e96c8;
+  }
+  
+  .dog-details {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  
+  .dog-details li {
+    margin-bottom: 5px;
+  }
+  
+  .dog-description {
+    margin-bottom: 20px;
+  }
+  
+  .adopt-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e76f51;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .adopt-button:hover {
+    background-color: #d6603f;
+  }
+  
+  .no-dogs-message {
+    text-align: center;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .adoption-disclaimer {
+    background-color: #f0f8ff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+  }
+  
+  .success-stories {
+    background-color: #f5f5f5;
+  }
+  
+  .stories-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .story-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .story-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .story-content {
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .dogs-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* JavaScript functionality for filters would be added separately */
+</style>
+
+<script>
+  // Simple filtering functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const dogCards = document.querySelectorAll('.dog-card');
+    const noDogsMessage = document.querySelector('.no-dogs-message');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        let visibleDogs = 0;
+        
+        dogCards.forEach(card => {
+          // For this demo, we're just showing/hiding all cards
+          // In a real app, you'd check properties of each dog
+          if (filter === 'all') {
+            card.style.display = 'block';
+            visibleDogs++;
+          } else {
+            // This is just a placeholder - in a real app you'd check dog properties
+            // For example, check if dog.age < 1 for 'puppy' filter
+            const dogGender = card.querySelector('.dog-details li:nth-child(3)').textContent.includes('Female') ? 'female' : 'male';
+            const dogAge = parseFloat(card.querySelector('.dog-details li:nth-child(2)').textContent.split(' ')[1]);
+            const isPuppy = dogAge < 1;
+            
+            if ((filter === 'puppy' && isPuppy) || 
+                (filter === 'adult' && !isPuppy) ||
+                (filter === 'male' && dogGender === 'male') ||
+                (filter === 'female' && dogGender === 'female')) {
+              card.style.display = 'block';
+              visibleDogs++;
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+        
+        // Show/hide "no dogs" message
+        if (visibleDogs === 0) {
+          noDogsMessage.style.display = 'block';
+        } else {
+          noDogsMessage.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

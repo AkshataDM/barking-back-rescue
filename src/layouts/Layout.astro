@@ -1,0 +1,449 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Barking Back Rescue - A nonprofit dog rescue organization dedicated to saving dogs at risk." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <a href="/" class="logo">
+            <img src="/logo.jpg" alt="Barking Back Rescue Logo" width="40" height="40" />
+            <span class="logo-text">Barking Back Rescue</span>
+          </a>
+          
+          <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <span class="hamburger"></span>
+          </button>
+          
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/adoptable-dogs" class="nav-link">Adoptable Dogs</a></li>
+            <li><a href="/contact" class="nav-link">Contact & Donate</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/logo.jpg" alt="Barking Back Rescue Logo" width="70" height="70" />
+            <h3>Barking Back Rescue</h3>
+            <p>Because everything is better with spots</p>
+            </div>
+          
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/adoptable-dogs">Adoptable Dogs</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-social">
+            <h4>Connect With Us</h4>
+            <ul class="social-links">
+              <li>
+                <a href="https://www.facebook.com/barkingbackrescue" target="_blank" rel="noopener noreferrer">
+                  <span class="sr-only">Facebook</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:contact@barkingbackrescue.org">
+                  <span class="sr-only">Email</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="footer-donate">
+            <h4>Support Our Mission</h4>
+            <a href="/contact" class="donate-button">Donate Now</a>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Barking Back Rescue. All rights reserved.</p>
+          <p>Barking Back Rescue is a 501(c)(3) nonprofit organization.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --primary-color: #4e96c8;
+    --secondary-color: #e76f51;
+    --text-color: #333;
+    --light-text: #555;
+    --background-color: #fff;
+    --light-bg: #f9f9f9;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  /* Header styles */
+  header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar {
+    padding: 15px 0;
+  }
+
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
+ }
+
+  .logo-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%; /* Keep the circular shape of the logo */
+    }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+  }
+
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+  }
+
+  .hamburger::before {
+    transform: translateY(-10px);
+  }
+
+  .hamburger::after {
+    transform: translateY(10px);
+  }
+
+  .mobile-menu-toggle.active .hamburger {
+    background-color: transparent;
+  }
+
+  .mobile-menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+  }
+
+  .mobile-menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+  }
+
+  /* Footer styles */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 60px 0 20px;
+    margin-top: auto;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo-image {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .footer-logo h3 {
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  .footer-logo p {
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+
+  .footer-links h4,
+  .footer-social h4,
+  .footer-donate h4 {
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-links h4::after,
+  .footer-social h4::after,
+  .footer-donate h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links ul li a {
+    color: #bbb;
+    transition: var(--transition);
+  }
+
+  .footer-links ul li a:hover {
+    color: white;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #444;
+    color: white;
+    transition: var(--transition);
+  }
+
+  .social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+  }
+
+  .donate-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: var(--transition);
+  }
+
+  .donate-button:hover {
+    background-color: #d6603f;
+    transform: translateY(-3px);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom p {
+    margin-bottom: 10px;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .mobile-menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      background-color: white;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      transform: translateY(-150%);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      padding: 0;
+    }
+
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+  }
+</style>

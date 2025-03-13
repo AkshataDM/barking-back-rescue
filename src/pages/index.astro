@@ -1,50 +1,311 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Barking Back Rescue - Because everything is better with spots">
+  <main>
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Barking Back Rescue</h1>
+        <p class="tagline">Because everything is better with spots</p>
+        <img src="/logo.jpg" alt="Barking Back Rescue Logo" width="250" height="250">
+      </div>
+    </div>
+
+    <section class="about">
+      <div class="container">
+        <h2>About Our Rescue</h2>
+        <p>
+          Barking Back Rescue is a nonprofit organization dedicated to saving dogs and puppies 
+          at risk of euthanasia or living in unsafe conditions. Our mission is to rescue, 
+          rehabilitate, and rehome these vulnerable animals, giving them a second chance at a 
+          happy and healthy life.
+        </p>
+        
+        <p>
+          As a 501(c)(3) nonprofit organization, we operate through a network of dedicated 
+          foster homes that provide temporary care and love for our rescued dogs until they 
+          find their forever families. Our foster-based approach ensures each dog receives 
+          personalized attention, proper socialization, and the opportunity to thrive in a 
+          home environment.
+        </p>
+
+        <div class="mission-highlights">
+          <div class="highlight-card">
+            <h3>Rescue</h3>
+            <p>We save dogs from high-kill shelters, neglectful situations, and other at-risk 
+            environments.</p>
+          </div>
+          
+          <div class="highlight-card">
+            <h3>Rehabilitate</h3>
+            <p>Our foster homes provide necessary medical care, training, and socialization to 
+            prepare dogs for adoption.</p>
+          </div>
+          
+          <div class="highlight-card">
+            <h3>Rehome</h3>
+            <p>We carefully match each dog with the perfect forever family where they'll be 
+            loved and cherished.</p>
+          </div>
+        </div>
+
+        <div class="cta-container">
+          <a href="/adoptable-dogs" class="cta-button">Meet Our Dogs</a>
+          <a href="/contact" class="cta-button secondary">Support Our Mission</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="container">
+        <h2>How Our Rescue Works</h2>
+        
+        <div class="process-steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>Foster-Based Care</h3>
+            <p>
+              Unlike traditional shelters, our rescued dogs live in foster homes where they receive 
+              individualized care, learn house manners, and experience life as part of a family.
+            </p>
+          </div>
+          
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Medical Care &amp; Training</h3>
+            <p>
+              All dogs receive necessary veterinary care, vaccinations, spay/neuter services, and 
+              basic training to prepare them for successful adoption.
+            </p>
+          </div>
+          
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>Adoption Process</h3>
+            <p>
+              We carefully screen potential adopters to ensure each dog finds a home that meets 
+              their specific needs and will provide lifelong love and care.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="help-section">
+      <div class="container">
+        <h2>How You Can Help</h2>
+        <div class="help-options">
+          <div class="help-card">
+            <h3>Adopt</h3>
+            <p>Give one of our dogs a forever home and experience the joy of rescue.</p>
+            <a href="/adoptable-dogs" class="help-link">View Adoptable Dogs</a>
+          </div>
+          
+          <div class="help-card">
+            <h3>Foster</h3>
+            <p>Open your home temporarily to a dog in need and help save lives.</p>
+            <a href="/contact" class="help-link">Contact Us About Fostering</a>
+          </div>
+          
+          <div class="help-card">
+            <h3>Donate</h3>
+            <p>Support our mission with a tax-deductible donation to help with medical care and supplies.</p>
+            <a href="/contact" class="help-link">Make a Donation</a>
+          </div>
+          
+          <div class="help-card">
+            <h3>Volunteer</h3>
+            <p>Share your time and talents to support our rescue operations.</p>
+            <a href="/contact" class="help-link">Get Involved</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .hero {
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    color: #4e96c8;
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .tagline {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+ .logo {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  margin: 20px auto;
+  display: block;
+  border-radius: 50%; /* Keep the circular shape of the logo */
+}
+
+  section {
+    padding: 60px 0;
+  }
+  
+  section:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #4e96c8;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .mission-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+  }
+  
+  .highlight-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+  }
+  
+  .step {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4e96c8;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+  
+  .help-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .help-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .help-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #4e96c8;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .help-link:hover {
+    text-decoration: underline;
+  }
+  
+  .cta-container {
+    text-align: center;
+    margin: 40px 0 20px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4e96c8;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin: 0 10px 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #3a7cad;
+  }
+  
+  .cta-button.secondary {
+    background-color: #e76f51;
+  }
+  
+  .cta-button.secondary:hover {
+    background-color: #d6603f;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+    }
+    
+    .mission-highlights, .process-steps, .help-options {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
