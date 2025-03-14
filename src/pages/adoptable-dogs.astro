@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Adoptable Dogs - Barking Back Rescue">
+  <main>
+    <div class="hero">
+      <div class="container">
+        <h1>Adoptable Dogs</h1>
+        <p class="subtitle">Find your perfect companion</p>
+      </div>
+    </div>
+
+    <section class="petfinder-section">
+      <div class="container">
+        <h2>Find Your Perfect Companion</h2>
+        <div class="petfinder-cta">
+          <a href="https://www.petfinder.com/search/pets-for-adoption/?shelter_id%5B0%5D=FL1225&sort%5B0%5D=recently_added" class="action-button petfinder-button" target="_blank" rel="noopener noreferrer">
+            View Our Dogs on Petfinder
+          </a>
+          
+          <a href="https://tinyurl.com/ytmyf5c4" class="action-button application-button" target="_blank" rel="noopener noreferrer">
+            Complete an Application
+          </a>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="success-stories">
+      <div class="container">
+        <h2>Happy Tails</h2>
+        <p class="stories-intro">
+          See how our adopted dogs are thriving in their forever homes!
+        </p>
+        
+        <div class="stories-slider">
+          <div class="story-card">
+            <img src="/images/mika.jpeg" alt="Happy adopted dog with family" class="story-image">
+            <div class="story-content">
+              <h3>Mika's furver pawrents</h3>
+              <p>
+                "Adopting Mika was the best decision we ever made. She is perfection and has brought so much joy to our 
+                family and fits in perfectly with our lifestyle. Thank you, Barking Back Rescue, for 
+                bringing us together!"
+              </p>
+            </div>
+          </div>
+          
+          <div class="story-card">
+            <img src="/images/success-placeholder-2.jpg" alt="Happy adopted dog with owner" class="story-image">
+            <div class="story-content">
+              <h3>Rocky's Forever Home</h3>
+              <p>
+                "When I adopted Rocky, he was shy and unsure. With patience and love, he's blossomed 
+                into a confident and happy dog. He's my best friend and constant companion." - Sarah M.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .hero {
+    background-color: #4e96c8;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  section:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #4e96c8;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Petfinder section styles */
+  .petfinder-cta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  .action-button {
+    display: inline-block;
+    padding: 16px 32px;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    text-align: center;
+    min-width: 220px;
+  }
+  
+  .petfinder-button {
+    background-color: #4e96c8;
+  }
+  
+  .application-button {
+    background-color: #e76f51;
+  }
+  
+  .action-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  .petfinder-button:hover {
+    background-color: #3a7cad;
+  }
+  
+  .application-button:hover {
+    background-color: #d6603f;
+  }
+  
+
+  
+  /* Success stories styles */
+  .stories-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+  }
+  
+  .stories-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .story-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .story-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+}
+  
+  .story-content {
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .action-button {
+      width: 100%;
+      padding: 14px 20px;
+    }
+    
+    .petfinder-cta {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+</style>

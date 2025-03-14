@@ -22,13 +22,18 @@ import Layout from '../layouts/Layout.astro';
             </a>
           </div>
           
-          <div class="contact-card">
-            <h2>Social Media</h2>
-            <p>Follow us on Facebook for the latest updates, success stories, and upcoming events:</p>
-            <a href="https://www.facebook.com/BarkingBackRescue/" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <i class="icon">👍</i> Barking Back Rescue on Facebook
+       <div class="contact-card">
+        <h2>Social Media</h2>
+        <p>Follow us on social media for the latest updates, success stories, and upcoming events:</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/BarkingBackRescue/" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+            <i class="fa-brands fa-facebook-f"></i>
             </a>
-          </div>
+            <a href="https://www.instagram.com/barkingbackrescue/" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+            <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        </div>
         </div>
       </div>
     </section>
@@ -45,7 +50,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="donation-card">
             <h3>Donate via PayPal</h3>
             <p>Make a one-time or recurring donation securely through PayPal:</p>
-            <a href="https://www.paypal.com/donate?hosted_button_id=YOURPAYPALID" class="donation-button" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.paypal.me/barkingbackrescue" class="donation-button" target="_blank" rel="noopener noreferrer">
               Donate with PayPal
             </a>
           </div>
@@ -54,10 +59,7 @@ import Layout from '../layouts/Layout.astro';
             <h3>Donate via Venmo</h3>
             <p>Send your donation through Venmo for immediate support:</p>
             <div class="venmo-info">
-              <span class="venmo-username">@BarkingBackRescue</span>
-              <a href="https://venmo.com/BarkingBackRescue" class="donation-button" target="_blank" rel="noopener noreferrer">
-                Donate with Venmo
-              </a>
+              <span class="venmo-username">@Barking-back</span>
             </div>
           </div>
         </div>
@@ -68,7 +70,7 @@ import Layout from '../layouts/Layout.astro';
             <li>
               <h4>Amazon Wishlist</h4>
               <p>Purchase items directly from our wishlist to be shipped to our rescue:</p>
-              <a href="https://www.amazon.com/hz/wishlist/ls/YOURWISHLISTID" class="help-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://a.co/iulRCwc" class="help-link" target="_blank" rel="noopener noreferrer">
                 View Our Amazon Wishlist
               </a>
             </li>
@@ -76,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
             <li>
               <h4>Foster a Dog</h4>
               <p>Open your home to a rescue dog and help them prepare for their forever home:</p>
-              <a href="mailto:foster@barkingbackrescue.org" class="help-link">
+              <a href="mailto:barkingbackrescue@gmail.com" class="help-link">
                 Contact Us About Fostering
               </a>
             </li>
@@ -84,58 +86,12 @@ import Layout from '../layouts/Layout.astro';
             <li>
               <h4>Volunteer</h4>
               <p>Share your time and talents to support our rescue operations:</p>
-              <a href="mailto:volunteer@barkingbackrescue.org" class="help-link">
+              <a href="mailto:barkingbackrescue@gmail.com" class="help-link">
                 Learn About Volunteer Opportunities
               </a>
             </li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <section class="contact-form-section">
-      <div class="container">
-        <h2>Send Us a Message</h2>
-        <p class="form-intro">
-          Have questions about adoption, fostering, or our rescue? Fill out the form below and we'll 
-          get back to you as soon as possible.
-        </p>
-        
-        <form class="contact-form" action="#" method="POST">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Phone Number (optional)</label>
-            <input type="tel" id="phone" name="phone">
-          </div>
-          
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <select id="subject" name="subject" required>
-              <option value="">Select a subject</option>
-              <option value="adoption">Adoption Information</option>
-              <option value="fostering">Fostering Information</option>
-              <option value="donation">Donation Inquiry</option>
-              <option value="volunteer">Volunteer Opportunities</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          
-          <div class="form-group full-width">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-          
-          <button type="submit" class="submit-button">Send Message</button>
-        </form>
       </div>
     </section>
   </main>
@@ -390,4 +346,36 @@ import Layout from '../layouts/Layout.astro';
       font-size: 1.2rem;
     }
   }
+
+  .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: transform 0.3s;
+  color: white;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.social-icon.facebook {
+  background-color: #1877F2;
+}
+
+.social-icon.instagram {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+}
 </style>
