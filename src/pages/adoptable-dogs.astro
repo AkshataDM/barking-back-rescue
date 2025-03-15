@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-
 <Layout title="Adoptable Dogs - Barking Back Rescue">
   <main>
     <div class="hero">
@@ -10,7 +9,6 @@ import Layout from '../layouts/Layout.astro';
         <p class="subtitle">Find your perfect companion</p>
       </div>
     </div>
-
     <section class="petfinder-section">
       <div class="container">
         <h2>Find Your Perfect Companion</h2>
@@ -26,35 +24,59 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
     
-
     <section class="success-stories">
       <div class="container">
         <h2>Happy Tails</h2>
         <p class="stories-intro">
-          See how our adopted dogs are thriving in their forever homes!
+          Our adopted dogs are thriving in their forever homes!
         </p>
         
-        <div class="stories-slider">
-          <div class="story-card">
-            <img src="/images/mika.jpeg" alt="Happy adopted dog with family" class="story-image">
-            <div class="story-content">
-              <h3>Mika's furever pawrents</h3>
-              <p>
-                "Adopting Mika was the best decision we ever made. She is perfection and has brought so much joy to our 
-                family and fits in perfectly with our lifestyle. Thank you, Barking Back Rescue, for 
-                bringing us together!"
-              </p>
+        <!-- Changed to a simple photo row instead of montage grid -->
+        <div class="photo-row">
+          <div class="photo-item"><img src="/images/dog1.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog2.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog3.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/mika.jpeg" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog4.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog5.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog6.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog7.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog8.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog9.png" alt="Adopted dog"></div>
+           <div class="photo-item"><img src="/images/dog10.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog11.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog12.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog13.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog14.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog15.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog16.png" alt="Adopted dog"></div>
+          <div class="photo-item"><img src="/images/dog17.png" alt="Adopted dog"></div>
+        </div>
+        
+        <div class="testimonial-container">
+          <div class="testimonial-slider">
+            <div class="testimonial">
+              <p>"Adopting Mika was the best decision we ever made. She is perfection and has brought so much joy to our 
+              family and fits in perfectly with our lifestyle. Thank you, Barking Back Rescue, for 
+              bringing us together!"</p>
             </div>
-          </div>
-          
-          <div class="story-card">
-            <img src="/images/success-placeholder-2.jpg" alt="Happy adopted dog with owner" class="story-image">
-            <div class="story-content">
-              <h3>Rocky's Forever Home</h3>
-              <p>
-                "When I adopted Rocky, he was shy and unsure. With patience and love, he's blossomed 
-                into a confident and happy dog. He's my best friend and constant companion."
-              </p>
+            
+            <div class="testimonial">
+              <p>"We adopted an 8 year old cockapoo named Lily a week ago, and had the best experience with Barking Back Rescue. Kim and Lily's foster mom Trace were excellent, and you can tell they really love animals. I highly recommend!"</p>
+            </div>
+            
+            <div class="testimonial">
+              <p>"Kim with Barking Back Rescue was nothing but a great experience. She makes sure all her rescues go to a good home. She made our adoption experience quick and easy and answered all questions we had. She gave us as much time as we wanted to sit with the litter and find our match. She keeps in touch after the adoption to make sure all is still well and is there to help if needed. Definitely recommend adopting from this rescue💞"</p>
+            </div>
+
+            <div class="testimonial">
+              <p>"A true rescue! Great people!"</p>
+            </div>
+            <div class="testimonial">
+              <p>"I rescued two of my pups from Barking Back Rescue almost 4 years ago now. The owner helped me find the most amazing dog I have ever had. Then I fostered two little puppies for her and again fell in love. Was able to keep one and now they both have their forever home with us ❤️"</p>
+            </div>
+            <div class="testimonial">
+              <p>"We just adopted our new pup from BBR and couldn't have been happier with the experience. Everyone was professional, thorough, and kind throughout the entire process. I highly recommend using this rescue!"</p>
             </div>
           </div>
         </div>
@@ -62,7 +84,36 @@ import Layout from '../layouts/Layout.astro';
     </section>
   </main>
 </Layout>
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentTestimonial = 0;
+    
+    // Hide all testimonials except the first one
+    testimonials.forEach((testimonial, index) => {
+      if (index === 0) {
+        testimonial.classList.add('active');
+      } else {
+        testimonial.classList.remove('active');
+      }
+    });
+    
+    // Function to rotate testimonials
+    function rotateTestimonials() {
+      // Hide current testimonial
+      testimonials[currentTestimonial].classList.remove('active');
+      
+      // Move to next testimonial
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      
+      // Show next testimonial
+      testimonials[currentTestimonial].classList.add('active');
+    }
+    
+    // Set interval for rotation - 5 seconds display time
+    setInterval(rotateTestimonials, 5000);
+  });
+</script>
 <style>
   main {
     width: 100%;
@@ -161,39 +212,78 @@ import Layout from '../layouts/Layout.astro';
     background-color: #d6603f;
   }
   
-
+  /* New photo row styles - horizontal layout like in the image */
+  .photo-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .photo-row .photo-item {
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  
+  .photo-row .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   
   /* Success stories styles */
+  .success-stories {
+    padding: 40px 0; /* Reduced from 60px to 40px */
+  }
+  
   .stories-intro {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto 20px;
     font-size: 1.1rem;
   }
   
-  .stories-slider {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-  }
-  
-  .story-card {
+  /* Testimonial styles */
+  .testimonial-container {
+    max-width: 1000px; /* Expanded width */
+    margin: 0 auto; /* No margin top to reduce gap */
     background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: relative;
   }
   
-  .story-image {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: contain;
-}
+  .testimonial-slider {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+  }
   
-  .story-content {
-    padding: 20px;
+  .testimonial {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    top: 0;
+    left: 0;
+  }
+  
+  .testimonial.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .testimonial p {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 auto;
   }
   
   @media (max-width: 768px) {
@@ -213,6 +303,23 @@ import Layout from '../layouts/Layout.astro';
     .petfinder-cta {
       flex-direction: column;
       gap: 15px;
+    }
+    
+    .photo-row {
+      gap: 5px;
+    }
+    
+    .photo-row .photo-item {
+      width: 120px;
+      height: 120px;
+    }
+    
+    .testimonial-container {
+      padding: 20px;
+    }
+    
+    .testimonial p {
+      font-size: 1rem;
     }
   }
 </style>
