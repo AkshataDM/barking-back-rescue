@@ -1,60 +1,84 @@
-# Astro Starter Kit: Blog
+# Barking Back Rescue 
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+A high performance website built with Astro and deployed on Cloudflare Pages.
 
-<!-- dash-content-start -->
+## Overview
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+This website leverages the power of Astro's static site generation combined with Cloudflare Pages for deployment. This architecture enables:
 
-Features:
+- Lightning fast page loads
+- Global content delivery via Cloudflare's extensive CDN
+- Ability to serve millions of requests per day with minimal latency
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Tech Stack
 
-<!-- dash-content-end -->
+- **Frontend Framework**: [Astro](https://astro.build/)
+- **Hosting/Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/)
+- **Performance**: Cloudflare's global CDN network
 
 ## Getting Started
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+### Prerequisites
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/barking-back-rescue
-```
+- Node.js (v16.x or higher)
+- npm or yarn
+- Cloudflare account (for deployment)
 
-A live public deployment of this template is available at [https://barking-back-rescue.templates.workers.dev](https://barking-back-rescue.templates.workers.dev)
+### Local Development
 
-## 🚀 Project Structure
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/project-name.git
+   cd project-name
+   ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+4. Open your browser and visit `http://localhost:3000`
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deployment
 
-## 🧞 Commands
+This project is configured for automatic deployment via Cloudflare Pages. When you push to the main branch, Cloudflare automatically builds and deploys the latest version.
 
-All commands are run from the root of the project, from a terminal:
+## Contributing
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run deploy`          | Deploy your production site to Cloudflare        |
+We welcome contributions from the community! Please follow these guidelines when contributing to this project:
 
-## 👀 Want to learn more?
+### How to Contribute
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Fork the repository** and create your branch from `main`
+2. **Make your changes** and ensure they meet our code quality standards
+3. **Test your changes** thoroughly
+4. **Submit a pull request** with a clear description of the changes
 
-## Credit
+### Code Style Guidelines
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- Follow the existing code style and formatting
+- Use meaningful variable and function names
+- Write clear comments for complex logic
+- Add appropriate tests for new features
+
+### Pull Request Process
+
+1. Update the README.md with details of changes if applicable
+2. Update any relevant documentation
+3. Your PR should pass all CI checks
+4. Your PR requires approval from at least one maintainer
+
+### Branch Naming Convention
+
+- Feature branches: `feature/your-feature-name`
+- Bug fixes: `fix/issue-you-are-fixing`
+- Documentation updates: `docs/what-you-updated`
+
+## Contact
+
+For questions or support, please reach out to Akshata Mohan at oxta28@gmail.com.
